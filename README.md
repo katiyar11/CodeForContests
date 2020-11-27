@@ -5,8 +5,10 @@ This is a simple django app that tests CRUD operations against a database. In th
 ## Install Required Packages
 
 The Django CRUD project only need a single Python package "Django", it was built and tested with Django 3.1 version. To install it use the following command:
-
+```python 
 pip install -r requirements.txt
+
+```
 
 Running the Application
 Before running the application we need to create the needed DB tables:
@@ -36,4 +38,4 @@ You do need to create a user to test it, you can create a user using the followi
 python manage.py createsuperuser
 
 To create a normal user (non super user), you must login to the admin page and create it: http://localhost:8000/admin/
----
+
