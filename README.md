@@ -12,6 +12,7 @@ Running the Application
 Before running the application we need to create the needed DB tables:
 
 ## Confire DB in setting.py
+```python 
 
 DATABASES = {
     'default':{
@@ -20,8 +21,10 @@ DATABASES = {
         'HOST': 'local host',
         'PORT': 27017,        
     }
+    
 }
-
+```
+---
 python manage.py migrate
 Now you can run the development web server:
 
@@ -33,3 +36,4 @@ You do need to create a user to test it, you can create a user using the followi
 python manage.py createsuperuser
 
 To create a normal user (non super user), you must login to the admin page and create it: http://localhost:8000/admin/
+---
