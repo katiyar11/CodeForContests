@@ -1,8 +1,8 @@
-#Django online judge App
+# Django online judge App
 
 This is a simple django app that tests CRUD operations against a database. In this app, you will get coding problem which can be solve by multiple lenguages. 
 
-##Install Required Packages
+## Install Required Packages
 
 The Django CRUD project only need a single Python package "Django", it was built and tested with Django 3.1 version. To install it use the following command:
 
