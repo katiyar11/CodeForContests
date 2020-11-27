@@ -11,15 +11,14 @@ pip install -r requirements.txt
 Running the Application
 Before running the application we need to create the needed DB tables:
 
-Confire DB in setting.py
+## Confire DB in setting.py
 
 DATABASES = {
     'default':{
         'ENGINE': 'djongo',
         'NAME': '<DB_name>',
         'HOST': 'local host',
-        'PORT': 27017,
-        
+        'PORT': 27017,        
     }
 }
 
