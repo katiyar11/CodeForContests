@@ -1,0 +1,267 @@
+{% load static%}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>CODeForCONtest</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/bootstrap.min.css' %}">
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/font-awesome.min.css' %}">
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/owl.carousel.css' %}">
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/owl.theme.default.min.css' %}">
+
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/templatemo-style.css' %}">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <h> <a href="#" class="navbar-brand">CodeForContest</a></h>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="/" class="smoothScroll">Home</a></li>
+                        
+  
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                                                 
+                         {% if user.is_authenticated %}
+
+                              <li><h3>Hello, {{user.username}}</h3></li>
+                              <li><a href="/accounts/logout">Logout</a></li>
+                         {% else %}
+                              <li><a href="/"></a></li>
+                              <li><a href="/accounts/login">Login</a></li>
+                              <li><a href="accounts/register">Registration</a></li>
+                         {% endif %}
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+
+     <!-- HOME -->
+    
+     <!-- FEATURE -->
+     <!-- ABOUT -->
+     <section id="about">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6 col-sm-12">
+                         <div class="about-info">
+                      
+                
+                    <h3>{{form.contest_name}}</h3>
+                    <div ><p>{{form.description}}</p> </div>
+
+                   <h4>Input Format</h4>                 
+                   <div>{{form.input_format}}</div>
+                   <h4>Output Format</h4>   
+                    <div>{{form.output_format}}</div
+
+                              <figure>
+                                   <!-- <span> <h3>{{form.Contest_Name}}</h3></span><br> -->
+                                   <figcaption>
+                                       
+                                       
+                                        
+                                   </figcaption>
+                              </figure>
+                              
+                              <!-- <figure>
+                                   <span><i class="fa fa-certificate"></i></span>
+                                   <figcaption>
+                                        <h3>Input</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
+                                   </figcaption>
+                              </figure>
+
+                              <figure>
+                                   <span><i class="fa fa-bar-chart-o"></i></span>
+                                   <figcaption>
+                                        <h3>Oputput</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
+                                   </figcaption>
+                              </figure> -->
+                        
+                         </div>
+                         
+                    </div>
+
+                    <div class="col-md-6 col-sm-12">
+                        
+                              <div class="section-title">
+                                   <h2>Editer <small>    </small></h2>
+                                   <select name="" id="changeData">
+                                        <option>Choose Language</option>
+                                        <option data-value="c_cpp">C</option>
+                                        <option data-value="c_cpp">C++</option>
+                                        <option data-value="python">Python</option>
+                                        <option data-value="java">Java</option>
+                                        <option data-value="html">Html</option>
+                                        <option data-value="javascript">JavaScript</option>
+                                        </select>
+                                       
+                                  
+
+                              </div>
+                              <div class="col-md-12 col-sm-12">
+                                   <!-- <iframe height="400px" width="100%" src="https://repl.it/@shobhanakatiyar/SpectacularAngryPhysics-1?lite=true" scrolling="no" frameborder="no"  allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe> -->
+
+
+                                  
+                                   <script  type="text/javascript"  src="{%static 'h_js/src-min/ace.js' %}" charset="utf-8"></script>
+
+                                   <form action="" method="POST">{% csrf_token %}
+
+                                   <div id="editorCode" style=" height:300px; width:500px;"> </div><br>
+                                
+                                   <input type="text" hidden name="languageID" value="">
+                                   <script>
+                                        
+                                        var run= document.getElementById("show_value");
+                                        
+                                        var editor = ace.edit("editorCode");
+                                        var textarea = $('textarea[name="code"]').hide();
+                              
+                                        editor.setTheme("ace/theme/monokai");
+                                        editor.session.setOptions({
+                                        
+                                        newLineMode: "auto",
+                                        enableBasicAutocompletion:'true',
+                                        tabSize: 4,
+                                        useSoftTabs: true,
+                                        enableLiveAutocompletion: true,
+                                        enableSnippets: true
+                                        });
+                                        editor.getSession().setMode('ace/mode/python');
+                                        
+                                        editor.getSession().on('change', function(){
+                                        textarea.val(editor.getSession().getValue());
+                                    
+                                        });
+                                             
+                                        $('#changeData').on('change', function(){
+                                        var color = $(this).val();
+                                        console.log(color);
+                                        if(color == "C" || color == "C++")
+                                         {
+                                             editor.getSession().setMode("ace/mode/c_cpp");
+                                             document.getElementsByName('languageID').value= "c_cpp"
+                                         }
+                                         else
+                                         {
+                                           editor.getSession().setMode("ace/mode/"+color);
+                                           document.getElementsByName('languageID').value= color
+                                         }
+                                        
+                                        }); 
+                                        function getValue()
+                                             {
+                                             var x = editor.getValue();
+                                             console.log(x);
+                                             document.getElementsByName('show_value').value =x;
+                                             }
+
+                                        </script>
+                             
+
+
+
+                             <div class="col-md-2 col-sm-12">
+                                   
+                                   <button type="submit" class="form-control" id="run" name="run" onclick="getValue()">Run</button>
+                                
+                              </div> 
+                              <div class="col-md-2 col-sm-12">
+                                   
+                                  
+                                   <button type="reset" class="form-control" id="codeReset" name="codeReset">Reset</button>
+                              </div>  
+                              <div class="col-md-2 col-sm-12">
+                              <textarea id="show_value"  name="show_value" placeholder="OutPut"></textarea>
+                              </div> 
+                              
+                         </form>
+                    </div>
+                    
+                    </div>
+               </div>
+          </div>
+     </section>
+
+
+     <!-- TEAM -->
+     
+
+
+     
+     <!-- TESTIMONIAL -->
+     
+
+
+     <!-- CONTACT -->
+   
+
+
+     <!-- FOOTER -->
+     
+
+
+     <!-- SCRIPTS -->
+     <script type="text/javascript"  src="{%static 'h_js/src-min/ext-options.js' %}" charset="utf-8"></script>
+     <script  type="text/javascript" src="{%static 'h_js/src-min/theme-monokai.js' %}" charset="utf-8"></script>
+     <script  type="text/javascript"  src="{%static 'h_js/src-min/ext-language_tools.js' %}"charset="utf-8"></script>
+     <script  type="text/javascript"  src="{%static 'h_js/src-min/mode-python.js' %}"charset="utf-8"></script>
+     <script  type="text/javascript"  src="{%static 'h_js/src-min/mode-html.js' %}"charset="utf-8"></script>
+     <script  type="text/javascript"  src="{%static 'h_js/src-min/mode-c_cpp.js' %}" charset="utf-8"></script>
+     <script  type="text/javascript"  src="{%static 'h_js/src-min/mode-java.js' %}"charset="utf-8"></script>
+     <script  type="text/javascript"  src="{%static 'h_js/src-min/mode-javascript.js' %}" charset="utf-8"></script>
+
+
+     <script crossorigin="anonymous" src="{%static 'h_js/jquery.js' %}"></script>
+     <script crossorigin="anonymous" src="{%static 'h_js/bootstrap.min.js' %}"></script>
+     <script crossorigin="anonymous" src="{%static 'h_js/owl.carousel.min.js' %}"></script>
+     <script crossorigin="anonymous" src="{%static 'h_js/smoothscroll.js' %}"></script>
+     <script crossorigin="anonymous"src="{%static 'h_js/custom.js' %}"></script>
+
+
+</body>
+</html>

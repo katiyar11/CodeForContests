@@ -1,0 +1,143 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>CodeForContest</title>
+<!-- 
+
+Known Template 
+
+https://templatemo.com/tm-516-known
+
+-->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/bootstrap.min.css' %}">
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/font-awesome.min.css' %}">
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/owl.carousel.css' %}">
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/owl.theme.default.min.css' %}">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/templatemo-style.css' %}">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <h> <a href="#" class="navbar-brand">CodeForContest</a></h>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="/Contests/admin_view" class="smoothScroll">Home</a></li>
+                        
+                         <li><a href="/Contests/addContests" class="smoothScroll">ADD CONTESTS</a></li>
+                         <li><a href="/Contests/all_users" class="smoothScroll">All users</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                       
+                        
+                         {% if user.is_authenticated %}
+
+                              <li><h3>Hello, {{user.username}}</h3></li>
+                              <li><a href="logout">Logout</a></li>
+                         {% else %}
+                              <li><a href="/"></a></li>
+                              <li><a href="accounts/login">Login</a></li>
+                         {% endif %}
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+
+     <!-- HOME -->
+   
+
+
+     <!-- TEAM -->
+     <section id="team">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title">
+                              <h2>Update <small></small></h2>
+                         </div>
+                    </div>
+
+                    
+                                            <div class="col-md-5 col-sm-12">
+           
+                                      
+                                                     <div>
+        
+                                                        <form action="" method="POST" enctype="multipart/form-data">{%csrf_token%}
+                                                            {{form.as_p}}
+                                                           
+                                                            
+         
+                                                                <div class="form-group">                      
+                                                                    <button class="btn btn-success" type="submit" value="update">Update</button>                      
+                                                                </div>                      
+                                                        </form>                      
+                                            </div>  
+                                        </div>                   
+                                                  <div class="col-md-7 col-sm-12">  
+                                                       <div class="team-image" >
+                               
+                                                            <img src="/static/h_images/shut.jpg" class="" alt="" >
+                              
+                                                    </div>  
+                                                  </div>                                        
+                                         </div>                                             
+                                                                                 
+                                                      
+                              </div>
+                         </div>
+
+         
+     </section>
+
+
+
+
+     <!-- SCRIPTS -->
+     <script crossorigin="anonymous" src="{%static 'h_js/jquery.js' %}"></script>
+     <script crossorigin="anonymous" src="{%static 'h_js/bootstrap.min.js' %}"></script>
+     <script crossorigin="anonymous" src="{%static 'h_js/owl.carousel.min.js' %}"></script>
+     <script crossorigin="anonymous" src="{%static 'h_js/smoothscroll.js' %}"></script>
+     <script crossorigin="anonymous"src="{%static 'h_js/custom.js' %}"></script>
+
+</body>
+</html>

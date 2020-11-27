@@ -1,0 +1,147 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>Known - Education HTML Template</title>
+<!-- 
+
+Known Template 
+
+https://templatemo.com/tm-516-known
+
+-->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/bootstrap.min.css' %}">
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/font-awesome.min.css' %}">
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/owl.carousel.css' %}">
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/owl.theme.default.min.css' %}">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="{%static 'h_css/templatemo-style.css' %}">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <h> <a href="#" class="navbar-brand">CodeForContest</a></h>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="/Contests/admin_view" class="smoothScroll">Home</a></li>
+                        
+                         <li><a href="Contests/addContests" class="smoothScroll">ADD CONTESTS</a></li>
+
+                            <li><a href="/Contests/all_users" class="smoothScroll">All users</a></li>
+              
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">                
+                         {% if user.is_authenticated %}
+
+                              <li><h3>Hello, {{user.username}}</h3></li>
+                              <li><a href="logout">Logout</a></li>
+                         {% else %}
+                              <!-- <li><a href="/"></a></li> -->
+                              <li><a href="accounts/login">Login</a></li>
+                              <li><a href="accounts/register">Registration</a></li>
+
+                         {% endif %}
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+
+     <!-- HOME -->
+
+
+     <section id="testimonial">
+          <div class="container">
+               <div class="row">
+     
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title">
+                              <h2>All Users <small>List of Participant</small></h2>
+                         </div>
+     
+                        
+                              <div class="col-md-12 col-sm-12">
+                                   <div class="item">
+                                        <table class="table table-striped table-bordered table-sm">  
+                                             <thead class="thead-dark">  
+                                             <tr>  
+                                                 <th>user ID</th>  
+                                                 <th>Users Name</th>   
+                                                 <th> First Name</th>  
+                                                 <th>Last Name</th>  
+                                                 <th>E-mail</th>  
+                                                 <th>Total Submission</th>
+                                                  
+                                             </tr>  
+                                             </thead>  
+                                             <tbody>  
+                                         {% for obj in form %}  
+                                             <tr>  
+                                                 <td>{{ obj.id }}</td>  
+                                                 <td>{{ obj.username }}</td>  
+                                                 <td>{{ obj.first_name}}</td>  
+                                                 <td>{{ obj.last_name}}</td>  
+                                                 <td>{{ obj.email }}</td>  
+                                                 
+                                                 <td>  
+                                                     <!-- <a href="/edit/{{ employee.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+                                                     <a href="/delete/{{ employee.id }}">Delete</a>   -->
+                                                 </td>  
+                                             </tr>  
+                                         {% endfor %}  
+                                             </tbody>  
+                                         </table> 
+                                   </div>
+                              </div>
+               </div>
+          </div>
+     </section> 
+     
+    
+
+
+     <!-- SCRIPTS -->
+     <script crossorigin="anonymous" src="{%static 'h_js/jquery.js' %}"></script>
+     <script crossorigin="anonymous" src="{%static 'h_js/bootstrap.min.js' %}"></script>
+     <script crossorigin="anonymous" src="{%static 'h_js/owl.carousel.min.js' %}"></script>
+     <script crossorigin="anonymous" src="{%static 'h_js/smoothscroll.js' %}"></script>
+     <script crossorigin="anonymous"src="{%static 'h_js/custom.js' %}"></script>
+
+</body>
+</html>
